@@ -1,0 +1,52 @@
+@import "./variables";
+
+html,
+body {
+    min-height: 100%;
+    height: auto;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+main {
+    min-height: calc(100vh - $header-height - $footer-height);
+    padding-top: $main-padding-top;
+    padding-bottom: $main-padding-bottom;
+    background: $black;
+    color: $white;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    @media only screen and (min-width:768px) {
+        width: 750px;
+    }
+
+    @media only screen and (min-width:992px) {
+        width: 970px;
+    }
+
+    @media only screen and (min-width:1200px) {
+        width: 1180px;
+    }
+}
+
+.page-title {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    color: $white;
+}
+
+.full-height {
+    min-height: calc(100vh - $header-height - $footer-height - $main-padding-top - $main-padding-bottom);
+}

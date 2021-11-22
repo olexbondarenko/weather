@@ -1,0 +1,6 @@
+<form class="search__form">
+    <input class="search__form-field" type="text" name="location" placeholder="Enter your city"
+        [(ngModel)]="currentCity">
+    <button class="search__form-btn" [disabled]="currentCity.trim().length === 0" type="button"
+        (click)="setCurrentCity()">Search</button>
+</form>

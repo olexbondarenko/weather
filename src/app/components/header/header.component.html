@@ -1,0 +1,35 @@
+<header class="header">
+    <div class="container">
+        <div class="header__row">
+            <a routerLink="/" class="header__logo">Weather</a>
+            <div class="header__options">
+                <nav class="header__nav">
+                    <ul>
+                        <li>
+                            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/history" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">
+                                History
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                About
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header__units">
+                    <div class="header__units-item" [ngClass]="{ current: unit.isActive }"
+                        *ngFor="let unit of units; let index = index" (click)="changeUnit(index)">
+                        <i class="wi" [ngClass]="['wi-' + unit.icon]"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

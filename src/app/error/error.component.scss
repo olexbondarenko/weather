@@ -1,0 +1,9 @@
+@import "_variables";
+
+.error {
+    padding: 15px;
+    background: $red;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+}

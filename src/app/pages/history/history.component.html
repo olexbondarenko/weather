@@ -1,0 +1,16 @@
+<section class="history">
+    <ng-container *ngIf="errorMessage.length === 0 else errorBlock">
+        <h2 class="page-title">{{ title }}</h2>
+        <div class="weather-history">
+            <div class="weather-history__list">
+                <div class="weather-history__col" *ngFor="let weather of historicalWeather">
+                    <app-weather-card [weather]="weather.current" [currentUnits]="currentUnits">
+                    </app-weather-card>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #errorBlock>
+        <app-error [errorMessage]="errorMessage"></app-error>
+    </ng-template>
+</section>

@@ -1,0 +1,88 @@
+@import "_variables";
+
+.home {
+    .search {
+        display: block;
+        margin-bottom: 30px;
+    }
+}
+
+.weather-current {
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+
+    &__row {
+        display: flex;
+        margin: 0 -10px;
+    }
+
+    &__main {
+        flex-basis: 60%;
+        max-width: 60%;
+        padding: 0 10px;
+
+        &-city {
+            margin-bottom: 20px;
+            font-size: 100px;
+            font-weight: 300;
+        }
+
+        &-date {
+            font-size: 30px;
+            font-weight: 100;
+            color: $yellow;
+        }
+    }
+
+    &__temp {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-basis: 40%;
+        max-width: 40%;
+        padding: 0 10px;
+
+        &-value {
+            padding: 0 10px;
+            font-size: 150px;
+            font-weight: 300;
+            color: $yellow;
+
+            i {
+                margin-left: -50px;
+            }
+        }
+
+        &-info {
+            padding: 0 10px;
+
+            &-main {
+                margin-top: -10px;
+                font-size: 30px;
+                font-weight: 100;
+            }
+        }
+    }
+}
+
+.weather-forecast {
+    &__title {
+        margin-top: 0;
+        margin-bottom: 30px;
+        font-size: 20px;
+        font-weight: 300;
+    }
+
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -10px;
+    }
+
+    &__col {
+        flex-basis: 50%;
+        max-width: 50%;
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
+}

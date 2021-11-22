@@ -1,0 +1,127 @@
+@import "_variables";
+
+.weather-history {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -10px;
+    }
+
+    &__col {
+        flex-basis: 50%;
+        max-width: 50%;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    &__item {
+        padding: 15px;
+        background: rgba($color: $black-light, $alpha: 0.5);
+        border: 5px solid rgba($color: $gray, $alpha: 0.3);
+        border-radius: 5px;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        margin-left: -10px;
+        margin-right: -10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__main {
+        display: flex;
+        align-items: center;
+        flex-basis: 50%;
+        max-width: 50%;
+        padding: 0 10px;
+
+        &-date {
+            font-size: 45px;
+            font-weight: 700;
+            color: $yellow;
+        }
+
+        &-weather {
+            font-size: 16px;
+            font-weight: 100;
+        }
+    }
+
+
+    &__temp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-basis: 50%;
+        max-width: 50%;
+        padding: 0 15px;
+
+        &-head {
+            display: flex;
+            align-items: center;
+        }
+
+        &-icon {
+            margin-bottom: -5px;
+            margin-right: 15px;
+            font-size: 70px;
+        }
+
+        &-value {
+            font-size: 70px;
+            font-weight: 300;
+            line-height: 75px;
+
+            i {
+                margin-left: -20px;
+            }
+        }
+
+        &-feels {
+            font-size: 16px;
+            font-weight: 300;
+
+            i {
+                margin-left: -5px;
+                font-size: 16px;
+            }
+        }
+    }
+
+    &__info {
+        flex-basis: 33.3333333%;
+        max-width: 33.3333333%;
+        padding: 0 10px;
+
+        &-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: 300;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &-icon {
+            margin-right: 5px;
+            font-size: 20px;
+        }
+
+        &-name {
+            margin-right: 5px;
+            font-size: 14px;
+        }
+
+        &-value {
+            font-size: 14px;
+            color: $yellow;
+        }
+    }
+}

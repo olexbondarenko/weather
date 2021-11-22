@@ -1,0 +1,81 @@
+<div class="weather-card__item">
+    <div class="weather-card__row">
+        <div class="weather-card__main">
+            <div class="weather-card__main-icon">
+                <img [src]="'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png'" alt="weather">
+            </div>
+            <div class="weather-card__main-info">
+                <div class="weather-card__main-date">
+                    {{ weather.dt * 1000 | date: 'd MMM' }}
+                </div>
+                <div class="weather-card__main-weather">
+                    {{weather?.weather[0].description}}
+                </div>
+            </div>
+        </div>
+        <div class="weather-card__temp">
+            <div class="weather-card__temp-head">
+                <div class="weather-card__temp-icon">
+                    <i class="wi wi-thermometer-exterior"></i>
+                </div>
+                <div class="weather-card__temp-value">
+                    {{ (weather.temp?.[getTimesOfDay()] || weather.temp) | number: "1.0-0"}}
+                    <sup>
+                        <i class="wi" [ngClass]="currentUnits === 'metric' ? 'wi-celsius' : 'wi-fahrenheit'"></i>
+                    </sup>
+                </div>
+            </div>
+            <div class="weather-card__temp-feels">
+                Feels like:
+                <b>
+                    {{ (weather.feels_like?.[getTimesOfDay()] || weather.feels_like) | number: "1.0-0"}}
+                    <sup>
+                        <i class="wi" [ngClass]="currentUnits === 'metric' ? 'wi-celsius' : 'wi-fahrenheit'"></i>
+                    </sup>
+                </b>
+            </div>
+        </div>
+    </div>
+    <div class="weather-card__row">
+        <div class="weather-card__info">
+            <div class="weather-card__info-item">
+                <div class="weather-card__info-name">Humidity:</div>
+                <div class="weather-card__info-value">{{ weather.humidity || 0}}%</div>
+            </div>
+            <div class="weather-card__info-item">
+                <div class="weather-card__info-name">Pressure:</div>
+                <div class="weather-card__info-value">{{ weather.pressure || 0}} mm</div>
+            </div>
+        </div>
+        <div class="weather-card__info">
+            <div class="weather-card__info-item">
+                <div class="weather-card__info-name">Wind gust:</div>
+                <div class="weather-card__info-value">
+                    {{ weather.wind_gust || 0}}
+                    {{ currentUnits === 'metric' ? 'm/s' : 'mph'}}
+                </div>
+            </div>
+            <div class="weather-card__info-item">
+                <div class="weather-card__info-name">Wind speed:</div>
+                <div class="weather-card__info-value">
+                    {{ weather.wind_speed || 0}}
+                    {{ currentUnits === 'metric' ? 'm/s' : 'mph'}}
+                </div>
+            </div>
+        </div>
+        <div class="weather-card__info">
+            <div class="weather-card__info-item">
+                <div class="weather-card__info-icon"><i class="wi wi-sunrise"></i></div>
+                <div class="weather-card__info-value">
+                    {{ weather.sunrise * 1000 | date: 'hh:mm' }}
+                </div>
+            </div>
+            <div class="weather-card__info-item">
+                <div class="weather-card__info-icon"><i class="wi wi-sunset"></i></div>
+                <div class="weather-card__info-value">
+                    {{ weather.sunset * 1000 | date: 'hh:mm' }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

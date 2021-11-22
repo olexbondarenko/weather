@@ -1,0 +1,12 @@
+@import "_variables";
+
+.about {
+    &__content {
+        p {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 300;
+        }
+    }
+}

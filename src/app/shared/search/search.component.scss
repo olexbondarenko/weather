@@ -1,0 +1,39 @@
+@import "_variables";
+
+.search {
+    &__form {
+        display: flex;
+        align-items: center;
+
+        &-field {
+            display: block;
+            flex-basis: 80%;
+            max-width: 80%;
+            height: 50px;
+            padding: 0 15px;
+            border: none;
+            font-size: 20px;
+            font-weight: 300;
+        }
+
+        &-btn {
+            display: block;
+            flex-basis: 20%;
+            max-width: 20%;
+            height: 50px;
+            padding: 0 15px;
+            border: none;
+            background: $yellow;
+            font-size: 16px;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: $white;
+            cursor: pointer;
+
+            &[disabled] {
+                opacity: 0.8;
+                pointer-events: none;
+            }
+        }
+    }
+}

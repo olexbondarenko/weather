@@ -1,0 +1,43 @@
+<section class="home">
+    <app-search></app-search>
+    <ng-container *ngIf="errorMessage.length === 0 else errorBlock">
+        <div class="weather-current">
+            <div class="weather-current__row">
+                <div class="weather-current__main">
+                    <div class="weather-current__main-city">{{ currentCity }}</div>
+                    <div class="weather-current__main-date">{{ currentWeather.dt * 1000 | date }}</div>
+                </div>
+                <div class="weather-current__temp">
+                    <div class="weather-current__temp-value">
+                        {{ currentWeather.temp | number: "1.0-0" }}
+                        <sup>
+                            <i class="wi" [ngClass]="currentUnits === 'metric' ? 'wi-celsius' : 'wi-fahrenheit'"></i>
+                        </sup>
+                    </div>
+                    <div class="weather-current__temp-info">
+                        <div class="weather-current__temp-info-icon">
+                            <img [src]="'http://openweathermap.org/img/wn/' + '02d' + '@2x.png'" alt="weather">
+                        </div>
+                        <div class="weather-current__temp-info-main">
+                            {{ currentWeather.weather[0]?.main }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weather-forecast">
+            <h5 class="weather-forecast__title">
+                Forecast for 7 days
+            </h5>
+            <div class="weather-forecast__row">
+                <div class="weather-forecast__col" *ngFor="let weather of forecastWeather">
+                    <app-weather-card [weather]="weather" [currentUnits]="currentUnits">
+                    </app-weather-card>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #errorBlock>
+        <app-error [errorMessage]="errorMessage"></app-error>
+    </ng-template>
+</section>

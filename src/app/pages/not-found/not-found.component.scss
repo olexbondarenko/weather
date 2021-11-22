@@ -1,0 +1,40 @@
+@import "_variables";
+
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 200px;
+        color: $yellow;
+    }
+
+    &__subtitle {
+        margin-bottom: 30px;
+        font-size: 30px;
+        color: $gray-light;
+        font-weight: 300;
+    }
+
+    &__btn {
+        display: inline-block;
+        width: 100%;
+        max-width: 250px;
+        padding: 15px 30px;
+        background: $yellow;
+        border: 1px solid transparent;
+        text-decoration: none;
+        text-align: center;
+        color: $white;
+
+        &:hover {
+            background: transparent;
+            border-color: $yellow;
+            color: $yellow;
+        }
+    }
+}
