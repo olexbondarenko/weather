@@ -132,7 +132,13 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/weather/",
+            "repo": "https://github.com/olexbondarenko/weather.git",
+            "name": "olexbondarenko",
+            "email": "olexbondarenko@gmail.com"
+          }
         }
       }
     }

@@ -16,7 +16,7 @@ export class WeatherService {
   private api = {
     key: environment.config.apiKey,
     url: "https://api.openweathermap.org/data/2.5",
-    urlGeo: "http://api.openweathermap.org/geo/1.0",
+    urlGeo: "https://api.openweathermap.org/geo/1.0",
     points: {
       current: "/onecall",
       historical: "/onecall/timemachine",
@@ -42,11 +42,12 @@ export class WeatherService {
   // Geolocation variables
   public currentCity: BehaviorSubject<string> = new BehaviorSubject("");
   public currentLocation: BehaviorSubject<Geolocation> = new BehaviorSubject<Geolocation>({
+    latitude: 0,
+    longitude: 0,
     lat: 0,
     lon: 0,
     city: "",
-    name: "",
-    regionName: "",
+    name: ""
   });
 
   // Error variables
@@ -70,7 +71,6 @@ export class WeatherService {
   setCurrentLocation(currentLocation: Geolocation): void {
     this.currentLocation.next(currentLocation);
     this.currentCity.next(currentLocation.city);
-    this.currentCity.next(currentLocation.name);
   }
 
   // Set city name
@@ -96,9 +96,10 @@ export class WeatherService {
 
   // Gets current weather data and also for 5 next days
   getCurrentWeather(): Observable<Weather> {
+    let currentLocation = this.currentLocation.getValue();
     let params = {
-      lat: this.currentLocation.getValue().lat,
-      lon: this.currentLocation.getValue().lon,
+      lat: currentLocation.latitude || currentLocation.lat,
+      lon: currentLocation.longitude || currentLocation.lon,
       exclude: "minutely,hourly,alerts",
       units: this.currentUnits.getValue(),
       appid: this.api.key,
@@ -108,9 +109,10 @@ export class WeatherService {
 
   // Gets historical weather data for 5 previous days
   getHistoricalWeather(day: number): Observable<Weather> {
+    let currentLocation = this.currentLocation.getValue();
     let params = {
-      lat: this.currentLocation.getValue().lat,
-      lon: this.currentLocation.getValue().lon,
+      lat: currentLocation.latitude || currentLocation.lat,
+      lon: currentLocation.longitude || currentLocation.lon,
       units: this.currentUnits.getValue(),
       appid: this.api.key,
       dt: this.getTimestamp(day),

@@ -24,17 +24,18 @@ export class SearchComponent implements OnDestroy {
     if (this.currentCity.length) {
       this.weatherService.setCurrentCity(this.currentCity);
       this.weatherService.getCityGeolocation(this.currentCity).subscribe(
-        (res) => {
-          if (res.length) {
-            this.weatherService.setCurrentLocation(res[0]);
+        (response) => {
+          console
+          if (response.length) {
+            this.weatherService.setCurrentLocation(response[0]);
             this.weatherService.setError("");
           }
           else {
             this.weatherService.setError("City not found");
           }
         },
-        (err) => {
-          this.weatherService.setError(err.error.message)
+        (error) => {
+          this.weatherService.setError(error.error.message)
         }
       )
     }
