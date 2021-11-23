@@ -25,7 +25,6 @@ export class SearchComponent implements OnDestroy {
       this.weatherService.setCurrentCity(this.currentCity);
       this.weatherService.getCityGeolocation(this.currentCity).subscribe(
         (response) => {
-          console
           if (response.length) {
             this.weatherService.setCurrentLocation(response[0]);
             this.weatherService.setError("");
